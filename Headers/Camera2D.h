@@ -16,6 +16,8 @@ namespace Celofan {
 
         void update();
 
+        void goToPosition(const glm::vec2& target);
+
         glm::vec2 screenToWorld(glm::vec2 screenCoords);
 
         void setPositon(const glm::vec2 &newPositon);

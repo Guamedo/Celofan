@@ -8,7 +8,7 @@ namespace Celofan {
                            _cameraMatrix(1.0f),
                            _screenWidth(500),
                            _screenHeight(500),
-                           _orthoMatrix(1.0f) {
+                           _orthoMatrix(1.0f){
 
     }
 
@@ -33,6 +33,12 @@ namespace Celofan {
 
             _needsMatrixUpdate = false;
         }
+    }
+
+    void Camera2D::goToPosition(const glm::vec2 & target){
+        glm::vec2 dirVec = target - _position;
+        _position += dirVec / 10.0f;
+        _needsMatrixUpdate = true;
     }
 
     glm::vec2 Camera2D::screenToWorld(glm::vec2 screenCoords) {
@@ -64,5 +70,4 @@ namespace Celofan {
     const glm::mat4 &Camera2D::getCameraMatrix() const {
         return _cameraMatrix;
     }
-
 }
